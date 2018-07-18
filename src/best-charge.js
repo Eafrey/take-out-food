@@ -59,6 +59,7 @@ function bestCharge(selectedItems) {
 
   res += '\n-----------------------------------\n总计：'
   res += all_price-prom_price + '元';
+  res += '\n===================================';
 
   return res;
 }
