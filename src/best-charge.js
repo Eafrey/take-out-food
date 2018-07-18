@@ -19,6 +19,7 @@ function bestCharge(selectedItems) {
   });
 
   let all_price = 0;
+  let prom_price = 0;
   let prom1_price = 0;
   let prom2_price = 0;
   let prom2_dishs = new Array();
@@ -45,8 +46,10 @@ function bestCharge(selectedItems) {
   if(prom1_price > 0 || prom2_price > 0) {
     res += '\n-----------------------------------\n使用优惠:\n';
     if(prom1_price >= prom2_price) {
+      prom_price = prom1_price;
       res += '满30减6元，省6元';
     } else {
+      prom_price = prom2_price;
       res += '指定菜品半价(' + prom2_dishs.join('，') + ')，省' +prom2_price + '元';
     }
   }
@@ -55,7 +58,7 @@ function bestCharge(selectedItems) {
 
 
   res += '\n-----------------------------------\n总计：'
-  res += all_price + '元';
+  res += all_price-prom_price + '元';
 
   return res;
 }
